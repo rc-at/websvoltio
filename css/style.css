@@ -23,6 +23,7 @@ body {
 .text-gradient {
   background: linear-gradient(90deg, #00E5FF, #0077FF);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .text-accent { color: var(--accent-color); vertical-align: middle; margin-right: 8px;}
