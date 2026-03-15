@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-
   // ================= ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ) =================
   const faqSummaries = document.querySelectorAll('.faq-summary');
   
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
   // ================= BOTÓN "VOLVER ARRIBA" ESTABILIZADO =================
   const btnTop = document.getElementById('btn-top');
   
@@ -52,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
 
 // ================= LÓGICA DEL CARRUSEL DE PORTAFOLIO Y DIFUMINADOS =================
   const track = document.getElementById('portfolio-track');
