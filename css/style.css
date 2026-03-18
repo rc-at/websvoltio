@@ -347,7 +347,23 @@ p {
     flex-direction: column;
     align-items: flex-start;
     padding: 1.5rem;
-    gap: 1.5rem;
+    gap: 1.2rem;
+  }
+  
+  /* Contenedor de información */
+  .compact-service-info {
+    gap: 1rem;
+  }
+
+  /* Tamaño de caja e ícono */
+  .service-icon-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+  }
+  
+  .service-icon-box .material-symbols-outlined {
+    font-size: 1.5rem;
   }
   
   .compact-service-action {
