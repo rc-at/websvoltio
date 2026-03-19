@@ -46,49 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= CARRUSEL: INTERACCIÓN Y DIFUMINADOS ================= */
-  const track = document.getElementById('portfolio-track');
-  const btnPrev = document.getElementById('btn-prev');
-  const btnNext = document.getElementById('btn-next');
-
-  if (track) {
-    const wrapper = track.closest('.carousel-wrapper');
-    
-    const updateCarouselUI = () => {
-      if (track.scrollLeft <= 20) {
-        wrapper.classList.remove('show-left');
-        if (btnPrev) { btnPrev.style.opacity = '0'; btnPrev.style.pointerEvents = 'none'; }
-      } else {
-        wrapper.classList.add('show-left');
-        if (btnPrev) { btnPrev.style.opacity = '1'; btnPrev.style.pointerEvents = 'auto'; }
-      }
-      
-      if (Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth - 2) {
-        wrapper.classList.remove('show-right');
-        if (btnNext) { btnNext.style.opacity = '0'; btnNext.style.pointerEvents = 'none'; }
-      } else {
-        wrapper.classList.add('show-right');
-        if (btnNext) { btnNext.style.opacity = '1'; btnNext.style.pointerEvents = 'auto'; }
-      }
-    };
-
-    updateCarouselUI();
-    track.addEventListener('scroll', updateCarouselUI);
-
-    if (btnNext) {
-      btnNext.addEventListener('click', () => {
-        track.scrollBy({ left: 350, behavior: 'smooth' });
-      });
-    }
-
-    if (btnPrev) {
-      btnPrev.addEventListener('click', () => {
-        track.scrollBy({ left: -350, behavior: 'smooth' });
-      });
-    }
-  }
-
-  /* ================= LÓGICA DE PAQUETES (INDEPENDIENTES) ================= */
+  /* ================= LÓGICA DE PAQUETES ================= */
   
   // 1. Botón "Mantener expandido" (PC)
   const pinButtons = document.querySelectorAll('.btn-pin');
@@ -96,8 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   pinButtons.forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.stopPropagation(); 
-      const card = this.closest('.package-card'); // <--- Esto aísla el comportamiento
-      
+      const card = this.closest('.package-card'); 
       card.classList.toggle('is-pinned');
       
       if (card.classList.contains('is-pinned')) {
@@ -128,5 +85,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
 });
