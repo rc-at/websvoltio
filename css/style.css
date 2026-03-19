@@ -433,8 +433,8 @@ p {
 
 .web-asmad { background: #121212; --client-accent: #ff7817; }
 .web-mamita { background: #fff5f7; --client-accent: #FFA77B; }
-.web-mamita .mini-logo, .web-mamita .mini-title { color: #333 !important; background: #333 !important; }
-.web-lwq { background: #111111; --client-accent: #31d2ff; }
+.web-mamita .mini-logo { color: #333 !important; background: transparent !important; }
+.web-mamita .mini-title { background: #333 !important; }.web-lwq { background: #111111; --client-accent: #31d2ff; }
 .web-santander { background: #1a1a1a; --client-accent: #F4C44C; }
 
 .mini-nav { padding: 8px 12px; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); }
@@ -494,6 +494,41 @@ p {
   to { background-position: 200% center; }
 }
 
+/* Estilos para el Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.show .modal-content {
+  transform: scale(1);
+}
+
+/* Bloqueo de scroll cuando el modal está activo */
+body.modal-open {
+  overflow: hidden;
+}
+
 /* ==========================================================================
    11. DISEÑO RESPONSIVO Y MÓVILES
    ========================================================================== */
@@ -548,4 +583,11 @@ p {
   .btn-primary { padding: 0.7rem 1.2rem; font-size: 0.9rem; }
   .btn-primary svg { width: 16px; height: 16px; }
   .ideal-item { font-size: 0.85rem; }
+
+  .modal-content {
+    padding: 1.5rem !important;
+    margin: 0 15px;
+  }
+  .modal-content h3 { font-size: 1.1rem !important; }
+  .modal-content p { font-size: 0.85rem !important; line-height: 1.4 !important; }
 }

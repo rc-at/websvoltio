@@ -95,4 +95,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* ================= 5. LÓGICA DEL MODAL CON BLOQUEO DE SCROLL ================= */
+  const openModal = document.getElementById('open-modal');
+  const closeModal = document.getElementById('close-modal');
+  const modal = document.getElementById('modal-lp');
+
+  if (openModal && modal) {
+    openModal.addEventListener('click', () => {
+      modal.classList.add('show');
+      document.body.classList.add('modal-open'); // Bloquea scroll
+    });
+
+    const hideModal = () => {
+      modal.classList.remove('show');
+      document.body.classList.remove('modal-open'); // Libera scroll
+    };
+
+    closeModal.addEventListener('click', hideModal);
+    
+    // Cerrar al hacer clic fuera del card
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) hideModal();
+    });
+  }
+
 });
