@@ -36,6 +36,19 @@ body {
     line-height: 1.6;
 }
 
+button,
+a,
+input,
+.type-btn,
+.nav-arrow {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+    outline: none !important;
+}
+
 /* =========================================
    3. GLOBAL TYPOGRAPHY
    ========================================= */
@@ -486,6 +499,175 @@ body {
     padding: 0.6rem 1.5rem;
 }
 
+* --- Animación Sutil para el WhatsApp FAB --- */ .glass-fab {
+    /* ... (tus estilos anteriores) ... */
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    animation: fabAppear 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 1.5s;
+    /* Aparece después de que el Hero cargue */
+}
+
+@keyframes fabAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Efecto hover/active sutil para que el usuario sepa que pulsó */
+.nav-arrow:active,
+.type-btn:active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(0.95);
+}
+
+.glass-fab:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(37, 211, 102, 0.2);
+}
+
+/* --- Navegación Móvil --- */
+.mobile-controls {
+    display: none;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.nav-arrow {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--secondary-accent);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* Clase para ocultar flechas cuando no hay secciones */
+.nav-arrow.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.nav-arrow:active {
+    transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    .logo {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* --- FAB de Cristal --- */
+.glass-fab {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-fab svg {
+    width: 26px;
+    height: 26px;
+    fill: #25D366;
+}
+
+@media (max-width: 768px) {
+    .glass-fab {
+        display: flex;
+    }
+}
+
+/* --- Ajuste Logo en Móvil --- */
+@media (max-width: 768px) {
+    .nav-pill .logo {
+        font-size: 1.15rem;
+        /* Logo más compacto */
+        gap: 0.1rem;
+    }
+
+    .nav-pill .logo .bolt-icon {
+        font-size: 1.6rem;
+        /* Icono del rayo más pequeño */
+    }
+}
+
+/* --- Contador de Secciones --- */
+.section-counter {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 35px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* --- Botón Flotante de Cristal (Glass FAB) --- */
+.glass-fab {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.05);
+    /* Cristal sutil */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-fab svg {
+    width: 28px;
+    height: 28px;
+    fill: #25D366;
+    /* El icono mantiene su color verde característico */
+    filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.4));
+}
+
+.glass-fab:active {
+    transform: scale(0.9);
+    background: rgba(37, 211, 102, 0.1);
+}
+
+@media (max-width: 768px) {
+    .glass-fab {
+        display: flex;
+    }
+}
+
 /* Hero */
 #hero {
     padding: 10rem 0 0 0;
@@ -926,6 +1108,116 @@ body {
     font-weight: 400;
 }
 
+/* --- Botones de Selección con Icono --- */
+.type-selector {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.type-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-dark);
+    padding: 1.2rem 0.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.type-btn .material-icons {
+    font-size: 1.8rem;
+    opacity: 0.5;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.type-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.type-btn.active {
+    background: rgba(0, 102, 255, 0.1);
+    border-color: var(--secondary-accent);
+    color: var(--text-light);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+}
+
+.type-btn.active .material-icons {
+    opacity: 1;
+    transform: scale(1.1);
+    color: var(--secondary-accent);
+}
+
+/* --- Input de Presupuesto --- */
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 0 2rem;
+    margin-top: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--secondary-accent);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+}
+
+.currency-prefix {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--secondary-accent);
+    margin-right: 0.8rem;
+}
+
+#budgetInput {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-light);
+    font-size: 3rem;
+    font-weight: 800;
+    width: 100%;
+    padding: 1.5rem 0;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* 2. Estado de alerta si supera el límite */
+#budgetInput.input-danger {
+    color: #ff4d4d !important;
+    text-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+}
+
+/* Para navegadores basados en WebKit (Chrome, Safari, Edge reciente) */
+#budgetInput::-webkit-inner-spin-button,
+#budgetInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Para Firefox */
+#budgetInput {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.budget-hint {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
 /* --- RESPONSIVIDAD --- */
 @media (max-width: 900px) {
     .investment-box {
@@ -1129,6 +1421,83 @@ body {
     .nav-compact {
         padding-top: 0.5rem !important;
         padding-bottom: 0.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* 1. Reducir el aire vertical de la sección */
+    .screen-section {
+        padding: 4rem 0;
+    }
+
+    .investment-box {
+        padding: 2rem 1.5rem;
+        /* Menos padding interno */
+        margin-top: 1rem;
+    }
+
+    /* 2. Compactar selectores de tipo */
+    .type-selector {
+        gap: 0.5rem;
+    }
+
+    .type-btn {
+        padding: 0.8rem 0.3rem;
+        font-size: 0.8rem;
+        /* Texto un poco más pequeño */
+    }
+
+    .type-btn .material-icons {
+        font-size: 1.4rem;
+        /* Iconos más discretos */
+    }
+
+    /* 3. Ajustar el tamaño del precio para que no desborde */
+    #budgetInput {
+        font-size: 2rem;
+        /* Bajamos de 3rem para evitar saltos de línea */
+        padding: 1rem 0;
+    }
+
+    .currency-prefix {
+        font-size: 1.4rem;
+    }
+
+    /* 4. Reducir los espacios entre bloques de la calculadora */
+    .calculator-grid {
+        gap: 1.5rem;
+        /* Menos espacio entre el input y el resultado */
+    }
+
+    .calc-input-area {
+        padding-bottom: 1.5rem;
+    }
+
+    .calc-result-area {
+        min-height: auto;
+        /* Quitamos la altura mínima en móvil para que no flote */
+        gap: 1rem;
+    }
+
+    .result-long-desc {
+        font-size: 0.85rem !important;
+        /* Texto descriptivo más compacto */
+    }
+
+    /* 5. Arreglar el Botón de WhatsApp */
+    #budgetBtn {
+        width: 100%;
+        padding: 1rem;
+        /* Padding más cómodo para dedos */
+        font-size: 1rem;
+        white-space: nowrap;
+        /* Evita que el texto se rompa en dos líneas */
+    }
+
+    .investment-result {
+        text-align: center;
+        align-items: center;
     }
 }
 

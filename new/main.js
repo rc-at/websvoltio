@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
             let active = null, minD = Infinity, cy = window.innerHeight / 2;
             let activeIndex = 0;
 
+            // 1. Detección de dispositivo móvil (Ancho menor a 768px)
+            const isMobile = window.innerWidth < 768;
+
+            // Check final de página (Footer) - Sin cambios
             const isNearBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 100);
 
             if (isNearBottom && footer) {
@@ -34,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+            // Identificar sección activa
             sections.forEach((sec, index) => {
                 const r = sec.getBoundingClientRect();
                 const d = Math.abs(r.top + r.height / 2 - cy);
@@ -44,16 +49,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 const txt = active.querySelector("h1, h2");
                 if (txt) {
                     const r = txt.getBoundingClientRect();
-                    const isCenteredAbove = active.id === "hero" || active.id === "solution";
+
+                    // --- LÓGICA MÓVIL ACTUALIZADA ---
+                    // Si es móvil, SIEMPRE se centra arriba. Si es PC, solo en Hero y Solución.
+                    const isCenteredAbove = isMobile || active.id === "hero" || active.id === "solution";
 
                     let xPos, yPos, rotation, scale;
 
                     if (isCenteredAbove) {
+                        // Posición: Centrado horizontalmente sobre el título
                         xPos = r.left + (r.width / 2);
-                        yPos = r.top - 80;
+                        // Elevación: Un poco más arriba en móvil para no tapar el texto
+                        yPos = isMobile ? r.top - 60 : r.top - 80;
                         rotation = 0;
-                        scale = 1.1;
+                        scale = isMobile ? 0.9 : 1.1; // Un poco más pequeño en móvil para que no sea invasivo
                     } else {
+                        // Comportamiento Lateral (Solo en PC para Problema y Precios)
                         const isRightSide = activeIndex % 2 !== 0;
                         xPos = isRightSide ? r.right + 25 : r.left - 45;
                         yPos = r.top + (r.height / 2);
@@ -63,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     energyBolt.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) translate(-50%, -50%) scale(${scale}) rotate(${rotation}deg)`;
 
+                    // Cambio de color (Problema = Rojo)
                     if (active.id === 'problem') {
                         energyBolt.classList.add('energy-mode-danger');
                         energyBolt.classList.remove('energy-mode-standard');
@@ -108,63 +120,92 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
     }
 
-    // 6. Calculadora de Presupuesto (Actualizada con texto largo)
-    const range = document.getElementById("budgetRange");
-    const valueNum = document.getElementById("budgetValue");
-    const priceContainer = document.getElementById("priceDisplay");
+    // 6. Calculadora de Presupuesto (Versión Profesional)
+    const typeBtns = document.querySelectorAll(".type-btn");
+    const budgetInput = document.getElementById("budgetInput");
+    const budgetHint = document.getElementById("budgetHint");
+    const resultIcon = document.getElementById("resultIcon");
     const title = document.getElementById("resultTitle");
     const text = document.getElementById("resultText");
-    const longDesc = document.getElementById("resultLongDesc"); // Nuevo elemento
+    const longDesc = document.getElementById("resultLongDesc");
     const btn = document.getElementById("budgetBtn");
-    const box = document.querySelector(".investment-box");
 
-    if (range && valueNum && priceContainer && box) {
-        function updateBudget() {
-            const v = parseInt(range.value);
-            valueNum.textContent = v;
-
-            if (v <= 250) {
-                title.textContent = "Web básica";
-                text.textContent = "Ideal para tener presencia en internet.";
-                longDesc.textContent = "Una solución rápida para quienes necesitan una tarjeta de presentación digital. Incluye información de contacto, ubicación y servicios básicos, optimizada para carga rápida.";
-            } else if (v <= 350) {
-                title.textContent = "Landing interactiva";
-                text.textContent = "Perfecta para mostrar su negocio y recibir mensajes.";
-                longDesc.textContent = "Diseñada para captar clientes potenciales (leads). Incluye botones de acción directos a WhatsApp, formularios integrados y un diseño dinámico que guía al usuario.";
-            } else if (v <= 500) {
-                title.textContent = "Web completa";
-                text.textContent = "Varias secciones y mejor presentación.";
-                longDesc.textContent = "Estructura multi-página con secciones detalladas de servicios, galería de proyectos, testimonios y una arquitectura pensada para el posicionamiento en Google.";
-            } else if (v <= 800) {
-                title.textContent = "Web avanzada";
-                text.textContent = "Contenido premium, mejor diseño y más confianza.";
-                longDesc.textContent = "Para negocios que buscan destacar. Incluye animaciones personalizadas, integración profunda de mapas y redes, y optimización premium para máxima velocidad.";
-            } else {
-                title.textContent = "Proyecto personalizado";
-                text.textContent = "Ideal para funciones especiales.";
-                longDesc.textContent = "Desarrollo a medida para necesidades específicas. Desde sistemas de reserva y catálogos autogestionables hasta plataformas con bases de datos y lógica compleja.";
-            }
-
-            // Colores
-            box.classList.remove("investment-low", "investment-mid", "investment-high");
-            priceContainer.classList.remove("price-low", "price-mid", "price-high");
-
-            if (v < 400) {
-                box.classList.add("investment-low");
-                priceContainer.classList.add("price-low");
-            } else if (v < 800) {
-                box.classList.add("investment-mid");
-                priceContainer.classList.add("price-mid");
-            } else {
-                box.classList.add("investment-high");
-                priceContainer.classList.add("price-high");
-            }
-
-            btn.href = `https://wa.me/970597061?text=Hola, quiero una página web.%0AMi inversión aproximada es S/${v}`;
+    const webConfigs = {
+        "1": {
+            t: "Web básica",
+            s: "Ideal para tener presencia en internet.",
+            l: "Tarjeta de presentación digital con información esencial, ubicación y contacto directo.",
+            i: "article",
+            minIdeal: 150, maxIdeal: 350
+        },
+        "2": {
+            t: "Landing interactiva",
+            s: "Perfecta para captar clientes y mensajes.",
+            l: "Diseño de una sola página enfocado en ventas, con botones de acción y optimización para anuncios.",
+            i: "rocket_launch",
+            minIdeal: 250, maxIdeal: 550
+        },
+        "3": {
+            t: "Web completa",
+            s: "Estructura profesional multi-sección.",
+            l: "Estructura robusta con varias secciones, galería de servicios y preparada para posicionarse en Google.",
+            i: "business",
+            minIdeal: 400, maxIdeal: 900
         }
-        range.addEventListener("input", updateBudget);
-        updateBudget();
+    };
+
+    let currentType = "1";
+
+    function updateCalculator() {
+        const config = webConfigs[currentType];
+        const budget = parseInt(budgetInput.value) || 0;
+
+        // Actualizar Textos e Icono
+        title.textContent = config.t;
+        text.textContent = config.s;
+        longDesc.textContent = config.l;
+        resultIcon.textContent = config.i;
+
+        // --- Lógica de Alerta Visual (NUEVO) ---
+        if (budget > 2000) {
+            budgetInput.classList.add("input-danger");
+            budgetHint.textContent = "Para proyectos mayores a S/ 2000, solicite una asesoría personalizada.";
+            budgetHint.style.color = "#ff4d4d";
+        } else {
+            budgetInput.classList.remove("input-danger");
+
+            // Validación de Rangos Estándar
+            if (budget < 150) {
+                budgetHint.textContent = "El monto mínimo de inversión es S/ 150.";
+                budgetHint.style.color = "#ff4d4d";
+            } else if (budget < config.minIdeal) {
+                budgetHint.textContent = `Para una ${config.t}, el rango ideal es entre S/ ${config.minIdeal} y S/ ${config.maxIdeal}.`;
+                budgetHint.style.color = "var(--text-dark)";
+            } else {
+                budgetHint.textContent = "Presupuesto óptimo para los resultados esperados.";
+                budgetHint.style.color = "#00ffd0";
+            }
+        }
+
+        // Actualizar enlace de WhatsApp
+        const message = `Hola WebsVoltio, me interesa una ${config.t}. Mi presupuesto estimado es de S/ ${budget}.`;
+        btn.href = `https://wa.me/51970597061?text=${encodeURIComponent(message)}`;
     }
+
+    // Eventos
+    typeBtns.forEach(b => {
+        b.addEventListener("click", () => {
+            typeBtns.forEach(btn => btn.classList.remove("active"));
+            b.classList.add("active");
+            currentType = b.dataset.type;
+            updateCalculator();
+        });
+    });
+
+    budgetInput.addEventListener("input", updateCalculator);
+
+    // Inicializar al cargar
+    updateCalculator();
 
     // 7. Marquee
     const marquee = document.querySelector('.trust-marquee');
@@ -172,4 +213,70 @@ document.addEventListener("DOMContentLoaded", () => {
         const group = marquee.querySelector('.marquee-group');
         marquee.appendChild(group.cloneNode(true));
     }
+
+    // Navegación Secuencial Robusta
+    const btnNext = document.getElementById('nextSection');
+    const btnPrev = document.getElementById('prevSection');
+    const sectionIds = ['hero', 'problem', 'solution', 'phases', 'footer'];
+
+    function updateNavVisibility() {
+        const scrollPos = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const sectionsArr = sectionIds.map(id => document.getElementById(id));
+
+        // Encontrar índice de la sección que ocupa la mayor parte de la pantalla
+        let currentIdx = sectionsArr.findIndex(sec => {
+            if (!sec) return false;
+            const rect = sec.getBoundingClientRect();
+            return rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2;
+        });
+
+        if (currentIdx === -1) return;
+
+        // Ocultar flecha arriba en la primera sección
+        if (currentIdx === 0) {
+            btnPrev?.classList.add('hidden');
+        } else {
+            btnPrev?.classList.remove('hidden');
+        }
+
+        // Ocultar flecha abajo en la última sección
+        if (currentIdx === sectionIds.length - 1) {
+            btnNext?.classList.add('hidden');
+        } else {
+            btnNext?.classList.remove('hidden');
+        }
+    }
+
+    function navigate(direction) {
+        const sectionsArr = sectionIds.map(id => document.getElementById(id));
+        const windowHeight = window.innerHeight;
+
+        // Encontrar dónde estamos ahora
+        let currentIdx = sectionsArr.findIndex(sec => {
+            const rect = sec.getBoundingClientRect();
+            return rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2;
+        });
+
+        let targetIdx = direction === 'next' ? currentIdx + 1 : currentIdx - 1;
+
+        // Validar límites
+        if (targetIdx >= 0 && targetIdx < sectionsArr.length) {
+            const targetSec = sectionsArr[targetIdx];
+            if (targetSec) {
+                // El offset de -60 es para no quedar tapado por el navbar
+                window.scrollTo({
+                    top: targetSec.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
+
+    btnNext?.addEventListener('click', () => navigate('next'));
+    btnPrev?.addEventListener('click', () => navigate('prev'));
+    window.addEventListener('scroll', updateNavVisibility, { passive: true });
+
+    // Ejecutar una vez al cargar
+    updateNavVisibility();
 });
