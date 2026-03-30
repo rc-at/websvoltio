@@ -19,13 +19,13 @@
   <meta property="og:title" content="WebsVoltio | Energía digital que convierte">
   <meta property="og:description"
     content="Haz que tu negocio sea visible en internet en pocos días. Creamos tu página web lista para que te encuentren en Google y te escriban por WhatsApp.">
-  <meta property="og:image" content="https://rc-at.github.io/websvoltio/preview.png">
+  <meta property="og:image" content="https://rc-at.github.io/websvoltio/img/preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="WebsVoltio">
   <meta property="og:locale" content="es_PE">
 
-  <!-- FACEBOOK DEVELOPER (PENDIENTE) 
+  <!-- FACEBOOK DEVELOPER (PENDIENTE)
   <meta property="fb:app_id" content="TU_APP_ID_AQUI">
   <meta property="fb:admins" content="TU_ID_DE_FACEBOOK"> -->
 
@@ -34,227 +34,242 @@
   <meta name="twitter:title" content="WebsVoltio | Energía digital que convierte">
   <meta name="twitter:description"
     content="Haz que tu negocio sea visible en internet en pocos días. Creamos tu página web lista para que te encuentren en Google y te escriban por WhatsApp.">
-  <meta name="twitter:image" content="https://rc-at.github.io/websvoltio/preview.png">
+  <meta name="twitter:image" content="https://rc-at.github.io/websvoltio/img/preview.png">
 
   <!-- COLOR DEL NAVEGADOR -->
-  <meta name="theme-color" content="#050a15">
+  <meta name="theme-color" content="#0056ff">
 
   <!-- LINKS (ICONO + FUENTES + CSS) -->
   <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300E5FF'><path d='M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z'/></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230056ff'><path d='M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z'/></svg>">
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-  <div class="energy">
-    <span class="material-icons bolt-icon">bolt</span>
-  </div>
 
-  <nav id="nav" class="nav-pill">
-    <div class="logo">
-      <span class="material-icons bolt-icon">bolt</span>
-      WebsVoltio
-    </div>
+  <header id="top-section" class="header-container">
 
-    <ul class="nav-links">
-      <li><a href="#hero">Inicio</a></li>
-      <li><a href="#problem">Problema</a></li>
-      <li><a href="#solution">Solución</a></li>
-      <li><a href="#phases">Inversión</a></li>
-      <li>
-        <a class="nav-cta"
-          href="https://wa.me/51970597061?text=Hola%2C%20estoy%20interesado%20en%20cotizar%20una%20p%C3%A1gina%20web.%20%C2%BFPodr%C3%ADan%20compartirme%20detalles%20y%20precios%3F"
-          target="_blank">
-          Cotizar
-        </a>
-      </li>
-    </ul>
+    <nav class="navbar">
+      <div class="container navbar-inner">
+        <div class="nav-brand-links">
+          <a href="index.html" class="brand-link">
+            <span class="material-icons">bolt</span>
+            <span class="brand-name">WebsVoltio</span>
+          </a>
+          <div class="nav-links">
+            <a href="#benefits">Beneficios</a>
+            <a href="#portfolio">Proyectos</a>
+            <a href="#contact">Contacto</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">
+          <span class="material-icons" id="theme-icon">dark_mode</span>
+        </button>
+      </div>
+    </nav>
 
-    <div class="mobile-controls">
-      <button id="prevSection" class="nav-arrow" aria-label="Sección anterior">
-        <span class="material-icons">expand_less</span>
-      </button>
-      <button id="nextSection" class="nav-arrow" aria-label="Siguiente sección">
-        <span class="material-icons">expand_more</span>
-      </button>
-    </div>
-  </nav>
+    <div class="hero-main-content">
+      <div class="container hero-layout-grid">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Tu negocio en internet hoy mismo.</h1>
 
-  <header id="hero" class="screen-section">
-    <div class="hero-content">
-      <h1 class="reveal-3d">Tu negocio online, diseñado para vender más.</h1>
-      <p class="hero-sub reveal-3d delay-1">Creamos páginas web rápidas, modernas y listas para recibir clientes.</p>
-      <div class="hero-btns reveal-3d delay-2">
-        <a href="#phases" class="btn btn-primary">Ver como invertir</a>
-        <a href="https://wa.me/51970597061?text=Hola%2C%20estuve%20viendo%20sus%20soluciones%20web%20y%20tengo%20algunas%20dudas.%20%C2%BFPodr%C3%ADan%20orientarme%3F"
-          class="btn btn-sec" target="_blank">Consultar vía WhatsApp</a>
+          <p class="hero-description">
+            Toda tu información en una landing page simple y clara, lista para mostrar lo que haces y facilitar que te
+            contacten.
+          </p>
+
+          <div class="hero-pricing">
+            <h2 class="price-title">Precio único: S/ 199</h2>
+            <p class="price-subtitle">Pago contra entrega &middot; Sin riesgos &middot; Sin costos ocultos</p>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/51969388443?text=Hola,%20quiero%20una%20landing%20page" target="_blank"
+              class="btn-primary whatsapp-btn">
+              <span class="whatsapp-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.52 3.48A11.82 11.82 0 0 0 12.01 0C5.37 0 .01 5.36 0 12c0 2.11.55 4.17 1.6 5.99L0 24l6.17-1.62A11.94 11.94 0 0 0 12.01 24c6.63 0 12-5.36 12-12 0-3.2-1.25-6.2-3.49-8.52zM12.01 21.8c-1.8 0-3.56-.48-5.1-1.39l-.36-.21-3.66.96.98-3.57-.23-.37A9.77 9.77 0 0 1 2.2 12c0-5.41 4.4-9.8 9.81-9.8 2.62 0 5.08 1.02 6.93 2.87a9.74 9.74 0 0 1 2.87 6.93c0 5.41-4.4 9.8-9.8 9.8zm5.39-7.39c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.66.14-.19.29-.76.95-.93 1.15-.17.19-.34.22-.63.07-.29-.14-1.21-.45-2.3-1.43-.85-.76-1.43-1.69-1.6-1.98-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.59-.9-2.18-.24-.58-.48-.5-.66-.51h-.56c-.19 0-.51.07-.78.36s-1.02 1-1.02 2.43 1.04 2.82 1.19 3.02c.14.19 2.05 3.12 4.97 4.37.7.3 1.25.48 1.68.62.71.23 1.36.2 1.87.12.57-.09 1.72-.7 1.96-1.37.24-.66.24-1.23.17-1.37-.07-.14-.26-.22-.55-.36z" />
+                </svg>
+              </span>
+              Hablar por WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-block">
+          <div class="landing-card-3d">
+            <div class="mock-nav"></div>
+            <div class="mock-hero">
+              <div class="mock-title"></div>
+              <div class="mock-text"></div>
+              <div class="mock-text short"></div>
+              <div class="mock-btn"></div>
+            </div>
+            <div class="mock-section">
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </header>
 
-  <div class="trust-banner">
-    <div class="trust-marquee">
-      <div class="marquee-group">
-        <div class="chip">Precios accesibles por lanzamiento</div>
-        <div class="chip">Pago contra entrega</div>
-        <div class="chip">Sin mensualidad obligatoria</div>
-        <div class="chip">Asesoría técnica incluida</div>
-        <div class="chip">Entrega en tiempo récord (días u horas)</div>
-      </div>
-    </div>
-  </div>
-
-  <section id="problem" class="screen-section">
+  <section id="benefits" class="benefits-section">
     <div class="container">
-      <div class="problem-head">
-        <h2 class="reveal-3d">Sus clientes ya buscan sus servicios en internet.<br>
-          <span class="text-danger">Si no te encuentran, eligen a otro.</span>
-        </h2>
-        <p class="section-intro reveal-3d delay-1" style="margin-top: 1.5rem;">
-          No tener una página web profesional significa regalarle ventas a tu competencia todos los días.
-        </p>
+      <div class="section-header">
+        <h2 class="section-title">Beneficios clave</h2>
+        <p class="section-subtitle">Descubre por qué una landing page es la herramienta perfecta para conseguir más
+          clientes sin complicaciones ni altos costos.</p>
       </div>
 
-      <div class="problem-grid">
-        <div class="card reveal-3d delay-1">
-          <span class="material-icons icon-card">visibility_off</span>
-          <h3>Invisible</h3>
-          <p>Las personas buscan en Google antes de comprar. Si no apareces, no te contactan.</p>
-        </div>
-        <div class="card reveal-3d delay-2">
-          <span class="material-icons icon-card">money_off</span>
-          <h3>Pierdes dinero</h3>
-          <p>Otros negocios ya están recibiendo clientes desde internet.</p>
-        </div>
-        <div class="card reveal-3d delay-3">
-          <span class="material-icons icon-card">broken_image</span>
-          <h3>Imagen obsoleta</h3>
-          <p>Una página antigua o inexistente hace que el cliente no confíe.</p>
-        </div>
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <div class="card-header">
+            <span class="card-number">01</span>
+            <span class="material-icons card-icon">smartphone</span>
+          </div>
+          <h3 class="card-title">Perfecta para celulares</h3>
+          <p class="card-text">Se ve clara y ordenada en cualquier teléfono, tablet o computadora.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="card-header">
+            <span class="card-number">02</span>
+            <span class="material-icons card-icon">forum</span>
+          </div>
+          <h3 class="card-title">Contacto al instante</h3>
+          <p class="card-text">Botones directos a tu WhatsApp, llamadas, redes sociales o correo.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="card-header">
+            <span class="card-number">03</span>
+            <span class="material-icons card-icon">speed</span>
+          </div>
+          <h3 class="card-title">Carga rápida</h3>
+          <p class="card-text">Tu información disponible de inmediato para no perder ningún cliente.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="card-header">
+            <span class="card-number">04</span>
+            <span class="material-icons card-icon">search</span>
+          </div>
+          <h3 class="card-title">Presencia en Google</h3>
+          <p class="card-text">Si alguien busca tu negocio, tendrá una página clara donde ver lo que haces y cómo
+            contactarte.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="card-header">
+            <span class="card-number">05</span>
+            <span class="material-icons card-icon">code</span>
+          </div>
+          <h3 class="card-title">Calidad profesional</h3>
+          <p class="card-text">Sin plantillas pesadas de WordPress. Código limpio, estable y a medida.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="card-header">
+            <span class="card-number">06</span>
+            <span class="material-icons card-icon">support_agent</span>
+          </div>
+          <h3 class="card-title">Asesoría total</h3>
+          <p class="card-text">Te guiamos paso a paso para publicarla gratis o usar tu propio dominio.</p>
+        </article>
+      </div>
+
+      <div class="benefits-footer-floating">
+        <span class="material-icons footer-icon">trending_up</span>
+        <p class="footer-text"><strong>Empieza simple.</strong> Hoy necesitas una página clara; mañana será la base de
+          tu crecimiento.</p>
       </div>
     </div>
   </section>
 
-  <section id="solution" class="screen-section">
-    <div class="container solution-layout">
-
-      <div class="solution-header reveal-3d">
-        <h2>Creamos páginas web pensadas
-          <span class="text-gradient"> para conseguir clientes</span>
-        </h2>
-        <p class="section-intro">
-          Somos un <strong>estudio de diseño y desarrollo web</strong> enfocado en construir la base técnica para que tu
-          empresa destaque desde el primer día.
-        </p>
-      </div>
-
-      <div class="solution-list-box reveal-3d delay-1">
-        <ul class="clean-list">
-          <li><span class="material-icons list-icon">web</span> Diseño moderno y profesional</li>
-          <li><span class="material-icons list-icon">speed</span> Carga rápida y eficiente</li>
-          <li><span class="material-icons list-icon">search</span> Preparada para aparecer en Google</li>
-          <li><span class="material-icons list-icon">share</span> Registro en Google Maps y presencia en redes
-          </li>
-          <li><span class="material-icons list-icon">devices</span> Funciona en todos los tamaños de pantalla</li>
-          <li><span class="material-icons list-icon">code</span> Desarrollo en código puro (100% personalizable)</li>
-        </ul>
-
-        <ul class="clean-list extra-list">
-          <li><span class="material-icons extra-icon">add</span> Asesoría para dominio propio</li>
-          <li><span class="material-icons extra-icon">add</span> Configuración de hosting y dominio inicial</li>
-          <li><span class="material-icons extra-icon">add</span> Dominio temporal gratuito disponible</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="phases" class="screen-section">
+  <section id="portfolio" class="portfolio-section">
     <div class="container">
-      <h2 class="reveal-3d">Tu web según tu inversión</h2>
-      <p class="section-intro reveal-3d delay-1">Cada proyecto se adapta a su presupuesto disponible. La inversión
-        define
-        el tipo de página y las funciones incluidas. Mantenemos nuestros precios bajos por lanzamiento.</p>
-
-      <div class="investment-box glass-panel reveal-3d delay-2">
-        <div class="calculator-grid">
-
-          <div class="calc-input-area">
-            <div class="control-group">
-              <p class="box-instructions">1. Seleccione el tipo de proyecto:</p>
-              <div class="type-selector">
-                <button class="type-btn active" data-type="1">
-                  <span class="material-icons">article</span>
-                  Básica
-                </button>
-                <button class="type-btn" data-type="2">
-                  <span class="material-icons">rocket_launch</span>
-                  Landing
-                </button>
-                <button class="type-btn" data-type="3">
-                  <span class="material-icons">business</span>
-                  Completa
-                </button>
-              </div>
-            </div>
-
-            <div class="control-group" style="margin-top: 2rem;">
-              <p class="box-instructions">2. Ingrese su presupuesto estimado:</p>
-              <div class="input-wrapper">
-                <span class="currency-prefix">S/</span>
-                <input type="number" id="budgetInput" value="250" min="150" max="2000" placeholder="000">
-              </div>
-              <p id="budgetHint" class="budget-hint">Presupuesto ideal para este tipo de web.</p>
-            </div>
-          </div>
-
-          <div class="calc-result-area">
-            <div class="investment-result">
-              <span class="material-icons icon-card" id="resultIcon">bolt</span>
-              <h3 id="resultTitle">Web básica</h3>
-              <p id="resultText">Ideal para tener presencia en internet.</p>
-              <p id="resultLongDesc" class="result-long-desc">
-                Tarjeta de presentación digital con información esencial, ubicación y contacto directo.
-              </p>
-            </div>
-            <a id="budgetBtn" class="btn btn-primary" target="_blank" href="https://wa.me/51970597061">
-              Continuar por WhatsApp
-            </a>
-          </div>
-
-        </div>
+      <div class="section-header">
+        <h2 class="section-title">Proyectos reales.</h2>
+        <p class="section-subtitle">Así lucen los negocios que ya confían en nosotros y están online.</p>
       </div>
 
-      <p class="bottom-note reveal-3d delay-3">
-        La página puede empezar simple y mejorar con el tiempo. Se paga solo por lo necesario, sin mensualidades
-        obligatorias.
-      </p>
+      <div class="portfolio-grid">
+        <a href="https://grupoasmad.com/" class="project-item" target="_blank" rel="noopener noreferrer">
+          <div class="project-image-bg" style="background-image: url('img/asmad.jpg');"></div>
+          <div class="project-info-overlay">
+            <h3 class="project-title">GRUPO ASMAD <span class="material-icons">open_in_new</span></h3>
+            <p class="project-text">Servicios de ingeniería e instalaciones en obras de construcción y residencias.</p>
+          </div>
+        </a>
+
+        <a href="https://rc-at.github.io/grupo-santander-peru/" class="project-item" target="_blank"
+          rel="noopener noreferrer">
+          <div class="project-image-bg" style="background-image: url('img/santander.jpg');"></div>
+          <div class="project-info-overlay">
+            <h3 class="project-title">Grupo Santander Perú SAC <span class="material-icons">open_in_new</span></h3>
+            <p class="project-text">Implementación de sistemas eléctricos en ambientes corporativos.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="portfolio-action">
+        <a href="https://instagram.com/websvoltio" class="btn-outline-hover" target="_blank" rel="noopener noreferrer">
+          Ver más en Instagram <span class="material-icons">arrow_forward</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <footer id="footer" class="final-section">
-    <div class="container reveal-3d">
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="footer-cta">
+        <h2 class="cta-title">Simple y al grano.<br>Empieza hoy.</h2>
+        <a href="https://wa.me/51969388443?text=Hola,%20quiero%20una%20landing%20page" target="_blank"
+          class="btn-primary whatsapp-btn">
+          <span class="whatsapp-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.52 3.48A11.82 11.82 0 0 0 12.01 0C5.37 0 .01 5.36 0 12c0 2.11.55 4.17 1.6 5.99L0 24l6.17-1.62A11.94 11.94 0 0 0 12.01 24c6.63 0 12-5.36 12-12 0-3.2-1.25-6.2-3.49-8.52zM12.01 21.8c-1.8 0-3.56-.48-5.1-1.39l-.36-.21-3.66.96.98-3.57-.23-.37A9.77 9.77 0 0 1 2.2 12c0-5.41 4.4-9.8 9.81-9.8 2.62 0 5.08 1.02 6.93 2.87a9.74 9.74 0 0 1 2.87 6.93c0 5.41-4.4 9.8-9.8 9.8zm5.39-7.39c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.66.14-.19.29-.76.95-.93 1.15-.17.19-.34.22-.63.07-.29-.14-1.21-.45-2.3-1.43-.85-.76-1.43-1.69-1.6-1.98-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.59-.9-2.18-.24-.58-.48-.5-.66-.51h-.56c-.19 0-.51.07-.78.36s-1.02 1-1.02 2.43 1.04 2.82 1.19 3.02c.14.19 2.05 3.12 4.97 4.37.7.3 1.25.48 1.68.62.71.23 1.36.2 1.87.12.57-.09 1.72-.7 1.96-1.37.24-.66.24-1.23.17-1.37-.07-.14-.26-.22-.55-.36z" />
+            </svg>
+          </span>
+          Hablar por WhatsApp
+        </a>
+      </div>
 
-      <h2 class="final-message">Potencie la presencia digital de su negocio hoy.</h2>
+      <div class="footer-main">
+        <div class="footer-brand-info">
+          <div class="footer-brand">
+            <span class="material-icons footer-logo-icon">bolt</span>
+            <h3 class="footer-brand-name">WebsVoltio</h3>
+          </div>
+          <p class="footer-description">Somos un estudio digital enfocado en negocios pequeños y técnicos. Creamos
+            landing pages simples para mostrar tus servicios y facilitar que te contacten rápidamente.</p>
+        </div>
 
-      <div class="footer-bottom">
-        <div class="logo">WebsVoltio</div>
-        <p>Estudio de diseño y desarrollo web.</p>
-        <div class="social-links">
-          <a href="https://wa.me/+51970597061" target="_blank">WhatsApp</a> ·
-          <a href="https://instagram.com/websvoltio" target="_blank">Instagram</a> ·
-          <a href="https://www.facebook.com/profile.php?id=61582020218862" target="_blank">Facebook</a>
+        <div class="footer-socials-wrapper">
+          <h4 class="socials-title">Contacto directo</h4>
+          <div class="footer-socials-list">
+            <a href="https://wa.me/51969388443" target="_blank">WhatsApp</a>
+            <a href="https://www.facebook.com/profile.php?id=61582020218862" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/websvoltio" target="_blank">Instagram</a>
+          </div>
         </div>
       </div>
 
+      <div class="footer-legal">
+        <p>&copy; 2026 WebsVoltio. Todos los derechos reservados.</p>
+        <div class="legal-links">
+          <a href="legal.html">Aviso Legal y Privacidad</a>
+        </div>
+      </div>
     </div>
   </footer>
   <script src="main.js"></script>
