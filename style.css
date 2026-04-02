@@ -477,7 +477,7 @@ button {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   transition: transform 0.6s ease;
 }
 
@@ -488,8 +488,8 @@ button {
 .project-info-overlay {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 40px 24px 24px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 100px 24px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -502,6 +502,7 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .project-title .material-icons {
@@ -518,8 +519,9 @@ button {
 
 .project-text {
   font-size: 0.95rem;
-  opacity: 0.9;
+  opacity: 0.95;
   line-height: 1.5;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .portfolio-action {
